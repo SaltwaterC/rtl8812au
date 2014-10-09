@@ -88,6 +88,7 @@ CONFIG_PLATFORM_FS_MX61 = n
 CONFIG_PLATFORM_ACTIONS_ATJ227X = n
 CONFIG_PLATFORM_TEGRA3_CARDHU = n
 CONFIG_PLATFORM_TEGRA4_DALMORE = n
+CONFIG_PLATFORM_ARM_RPI = n
 CONFIG_PLATFORM_ARM_TCC8900 = n
 CONFIG_PLATFORM_ARM_TCC8920 = n
 CONFIG_PLATFORM_ARM_TCC8920_JB42 = n
@@ -878,6 +879,15 @@ ARCH := $(SUBARCH)
 CROSS_COMPILE := /home/android_sdk/android-x86_JB/prebuilts/gcc/linux-x86/x86/i686-linux-android-4.7/bin/i686-linux-android-
 KSRC := /home/android_sdk/android-x86_JB/out/target/product/x86/obj/kernel/
 MODULE_NAME :=wlan
+endif
+
+ifeq ($(CONFIG_PLATFORM_ARM_RPI), y)
+EXTRA_CFLAGS += -DCONFIG_LITTLE_ENDIAN
+ARCH := arm
+CROSS_COMPILE ?=
+KVER := $(shell uname -r)
+KSRC ?= /lib/modules/$(KVER)/build
+MODDESTDIR := /lib/modules/$(KVER)/kernel/drivers/net/wireless/
 endif
 
 ifeq ($(CONFIG_PLATFORM_ARM_PXA2XX), y)
