@@ -10,8 +10,10 @@ sudo apt-get install linux-image-rpi-rpfv linux-headers-rpi-rpfv linux-source-3.
 
 You must enable the kernel in /boot/config.txt. If you don't do this, it will boot the kernel supplied by the The Raspberry Pi Foundation (the one that's provided by rpi-update). This kernel is provided without the source and the headers, hence it's easier to switch to a kernel provided by Raspbian. Append these lines at the end of the file:
 
-> kernel=vmlinuz-3.12-1-rpi
-> initramfs initrd.img-3.12-1-rpi followkernel
+```
+kernel=vmlinuz-3.12-1-rpi
+initramfs initrd.img-3.12-1-rpi followkernel
+```
 
 If the kernel version changes, you need to update /boot/config.txt. The `linux-source` meta-package points to linux-source-3.2, therefore you need to manually specify the latest version.
 
