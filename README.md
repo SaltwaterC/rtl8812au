@@ -1,8 +1,8 @@
 ## RTL8812AU
 
-This is the driver supplied by Realtek, version 4.3.8_12175.20140902 with a small patch to make it build under Raspberry Pi as well.
+This is the driver supplied by Realtek, version 4.3.8_12175.20140902 with a small patch to make it build on Raspberry Pi as well.
 
-For building under Raspberry Pi, you must install a Debian-style kernel.
+For building on Raspberry Pi, you must install a Debian-style kernel.
 
 ```bash
 sudo apt-get install linux-image-rpi-rpfv linux-headers-rpi-rpfv linux-source-3.12
